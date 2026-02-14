@@ -12,6 +12,7 @@ public class HibernateUtil {
             if (factory == null) {
                 factory = new Configuration()
                         .addAnnotatedClass(com.syedmusaib.Student.class)
+                        .addAnnotatedClass(com.syedmusaib.Certificate.class)
                         .configure()
                         .buildSessionFactory();
             }

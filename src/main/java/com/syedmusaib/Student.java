@@ -2,6 +2,9 @@ package com.syedmusaib;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "Student")
 public class Student {
@@ -22,6 +25,9 @@ public class Student {
     private String fathername;
 
     private boolean active = true;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY,orphanRemoval = true)
+    private List<Certificate> certificate = new ArrayList<>();
 
 
     public int getStudentId() {
