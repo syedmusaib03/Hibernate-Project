@@ -1,15 +1,17 @@
 package com.syedmusaib;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import java.util.Scanner;
 
 public class creataDataInsert {
     public static void main(String[] args) {
-        Session session = null;
-        session = HibernateUtil.getSessionFactory().openSession();
-     Transaction transaction= session.beginTransaction();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Transaction transaction = null;
+
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the name");
         String n = sc.nextLine();
@@ -24,7 +26,7 @@ public class creataDataInsert {
 
 
 
-        try {
+        try(Session session = sessionFactory.openSession()) {
             Student s1 = new Student();
             s1.setName(n);
             s1.setCollege(col);
@@ -43,9 +45,6 @@ public class creataDataInsert {
             }
             e.printStackTrace();
         }
-        finally {
-            if (session != null)session.close();
-            HibernateUtil.shutdown();
-        }
+
     }
 }

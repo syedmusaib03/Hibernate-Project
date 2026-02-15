@@ -1,6 +1,7 @@
 package com.syedmusaib;
 
 import jakarta.persistence.*;
+import org.hibernate.metamodel.mapping.EntityAssociationMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +9,10 @@ import java.util.List;
 @Entity
 @Table(name = "Student")
 public class Student {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "student_id")
     private int studentId;
 
     @Column(name = "Student_name", length = 100, unique = true)
