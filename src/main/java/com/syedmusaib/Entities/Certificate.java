@@ -1,4 +1,4 @@
-package com.syedmusaib;
+package com.syedmusaib.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;

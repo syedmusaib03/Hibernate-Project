@@ -1,5 +1,7 @@
 package com.syedmusaib;
 
+import com.syedmusaib.Entities.Certificate;
+import com.syedmusaib.Entities.Student;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -11,8 +13,8 @@ public class HibernateUtil {
         try {
             if (factory == null) {
                 factory = new Configuration()
-                        .addAnnotatedClass(com.syedmusaib.Student.class)
-                        .addAnnotatedClass(com.syedmusaib.Certificate.class)
+                        .addAnnotatedClass(Student.class)
+                        .addAnnotatedClass(Certificate.class)
                         .configure()
                         .buildSessionFactory();
             }

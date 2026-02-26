@@ -1,6 +1,8 @@
-package com.syedmusaib;
+package com.syedmusaib.Service;
 
 
+import com.syedmusaib.Entities.Student;
+import com.syedmusaib.HibernateUtil;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import org.hibernate.Session;
