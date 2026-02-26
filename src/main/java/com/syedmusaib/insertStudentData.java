@@ -6,7 +6,7 @@ import org.hibernate.Transaction;
 
 import java.util.Scanner;
 
-public class creataDataInsert {
+public class insertStudentData {
     public static void main(String[] args) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Transaction transaction = null;
@@ -14,27 +14,29 @@ public class creataDataInsert {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the name");
-        String n = sc.nextLine();
+        String studentName = sc.nextLine();
 
         System.out.println("Enter the college");
-        String col = sc.nextLine();
+        String studentCollege = sc.nextLine();
+
         System.out.println("Enter the father name");
-        String fname = sc.nextLine();
+        String studentFatherName = sc.nextLine();
+
         System.out.println("Enter the phone number");
-        String pno = sc.nextLine();
+        String studentPhoneNo = sc.nextLine();
 
 
+        Student s1 = new Student();
+        s1.setName(studentName);
+        s1.setCollege(studentCollege);
+        s1.setFathername(studentFatherName);
+        s1.setPhoneno(studentPhoneNo);
+        s1.setActive(true);
 
 
         try(Session session = sessionFactory.openSession()) {
-            Student s1 = new Student();
-            s1.setName(n);
-            s1.setCollege(col);
-            s1.setFathername(fname);
-            s1.setPhoneno(pno);
-            s1.setActive(true);
-
-           session.persist(s1);
+            transaction = session.beginTransaction();
+            session.persist(s1);
             transaction.commit();
             if (s1 != null)System.out.println("Inserted Data Successfully");
             else System.out.println("Data Not Inserted");
@@ -45,6 +47,8 @@ public class creataDataInsert {
             }
             e.printStackTrace();
         }
+
+
 
     }
 }

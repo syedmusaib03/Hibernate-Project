@@ -1,7 +1,6 @@
 package com.syedmusaib;
 
 import jakarta.persistence.*;
-import org.hibernate.metamodel.mapping.EntityAssociationMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +28,7 @@ public class Student {
 
     private boolean active = true;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY,orphanRemoval = true)
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER,orphanRemoval = true)
     private List<Certificate> certificate = new ArrayList<>();
 
 
@@ -80,4 +79,14 @@ public class Student {
     public void setActive(boolean active) {
         this.active = active;
     }
+
+
+    public List<Certificate> getCertificate() {
+        return certificate;
+    }
+
+    public void setCertificate(List<Certificate> certificate) {
+        this.certificate = certificate;
+    }
+
 }

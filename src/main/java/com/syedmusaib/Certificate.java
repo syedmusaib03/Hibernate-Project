@@ -9,6 +9,13 @@ public class Certificate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long certificateId;
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 
     private String title;
 
