@@ -6,7 +6,7 @@ import org.hibernate.Transaction;
 
 import java.util.Scanner;
 
-public class insertStudentData {
+public class StudentInsertData {
     public static void main(String[] args) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Transaction transaction = null;

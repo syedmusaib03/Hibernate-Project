@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 
 import java.util.Scanner;
 
-public class insertCertificateData {
+public class CertificateDataInsert {
     public static void main(String[] args) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
