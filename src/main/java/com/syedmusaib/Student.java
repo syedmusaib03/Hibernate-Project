@@ -1,10 +1,17 @@
 package com.syedmusaib;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = "certificate")
 @Entity
 @Table(name = "Student")
 public class Student {
@@ -31,62 +38,5 @@ public class Student {
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER,orphanRemoval = true)
     private List<Certificate> certificate = new ArrayList<>();
 
-
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCollege() {
-        return college;
-    }
-
-    public void setCollege(String college) {
-        this.college = college;
-    }
-
-    public String getPhoneno() {
-        return phoneno;
-    }
-
-    public void setPhoneno(String phoneno) {
-        this.phoneno = phoneno;
-    }
-
-    public String getFathername() {
-        return fathername;
-    }
-
-    public void setFathername(String fathername) {
-        this.fathername = fathername;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-
-    public List<Certificate> getCertificate() {
-        return certificate;
-    }
-
-    public void setCertificate(List<Certificate> certificate) {
-        this.certificate = certificate;
-    }
 
 }

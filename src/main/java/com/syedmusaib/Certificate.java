@@ -1,7 +1,14 @@
 package com.syedmusaib;
 
 import jakarta.persistence.*;
+import lombok.*;
 
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = "student")
 @Entity
 @Table(name = "Certificate")
 public class Certificate {
@@ -9,13 +16,7 @@ public class Certificate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long certificateId;
 
-    public Student getStudent() {
-        return student;
-    }
 
-    public void setStudent(Student student) {
-        this.student = student;
-    }
 
     private String title;
 
@@ -23,39 +24,10 @@ public class Certificate {
 
     private String link;
 
-    public long getCertificateId() {
-        return certificateId;
-    }
 
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
 
-    public void setCertificateId(long certificateId) {
-        this.certificateId = certificateId;
-    }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAbout() {
-        return about;
-    }
-
-    public void setAbout(String about) {
-        this.about = about;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
 }
