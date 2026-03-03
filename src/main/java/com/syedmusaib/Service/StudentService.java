@@ -82,7 +82,7 @@ public class StudentService {
 
     public List<Student> getAllStudentsHQL() {
         try (Session session = sessionFactory.openSession()) {
-            Query<Student> query = session.createQuery("from student", Student.class);
+            Query<Student> query = session.createQuery("from Student", Student.class);
             return query.list();
         } catch (Exception e) {
             e.printStackTrace();

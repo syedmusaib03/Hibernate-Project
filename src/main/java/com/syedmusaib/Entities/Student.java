@@ -14,6 +14,7 @@ import java.util.List;
 @ToString(exclude = "certificate")
 @Entity
 @Table(name = "Student")
+
 public class Student {
 
     @Id
@@ -22,7 +23,7 @@ public class Student {
     private int studentId;
 
     @Column(name = "Student_name", length = 100, unique = true)
-    private String name;
+    private StudentNames name;
 
     @Column(name = "College_name", length = 100, nullable = true)
     private String college;

@@ -1,6 +1,7 @@
 package com.syedmusaib;
 
 import com.syedmusaib.Entities.Student;
+import com.syedmusaib.Entities.StudentNames;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -12,10 +13,17 @@ public class StudentInsertData {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Transaction transaction = null;
 
-
+        StudentNames sn = new StudentNames();
+        Student s1 = new Student();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the name");
-        String studentName = sc.nextLine();
+        System.out.println("Enter the First name");
+        String fname = sc.nextLine();
+
+        System.out.println("Enter the Middle name");
+        String mname = sc.nextLine();
+
+        System.out.println("Enter the Last name");
+        String lname = sc.nextLine();
 
         System.out.println("Enter the college");
         String studentCollege = sc.nextLine();
@@ -26,9 +34,11 @@ public class StudentInsertData {
         System.out.println("Enter the phone number");
         String studentPhoneNo = sc.nextLine();
 
+        sn.setFName(fname);
+        sn.setMName(mname);
+        sn.setLNAme(lname);
 
-        Student s1 = new Student();
-        s1.setName(studentName);
+        s1.setName(sn);
         s1.setCollege(studentCollege);
         s1.setFathername(studentFatherName);
         s1.setPhoneno(studentPhoneNo);
